@@ -8,8 +8,6 @@
 <body>
 <h1>
 	Hello world!
-	안녕하십니까 
-	Third Commit
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
