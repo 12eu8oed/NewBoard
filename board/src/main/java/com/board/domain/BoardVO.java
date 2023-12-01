@@ -2,7 +2,7 @@ package com.board.domain;
 
 import java.util.Date;
 
-public class BoardVO {
+public class BoardVO { //Value Object의 첫 글자를 딴 약자로 VO는 그냥 값 그 자체
 	/* 테이블 입니다.
 	create table tbl_board(
 		  bno int not null auto_increment,
@@ -37,6 +37,8 @@ public class BoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////
 	public String getWriter() {
 		return writer;
 	}

@@ -10,15 +10,21 @@ import com.board.dao.BoardDAO;
 import com.board.domain.BoardVO;
 
 @Service
-public class BoardServiceImpl implements BoardService {
-	
+public class BoardServiceImpl implements BoardService { //정보 전달 용도
+
 	@Inject
 	private BoardDAO dao;
-	
+
+	// 게시물 목록
 	@Override
 	public List<BoardVO> list() throws Exception {
-		
+
 		return dao.list();
 	}
-	
+
+	// 게시물 작성
+	@Override
+	public void write(BoardVO vo) throws Exception {
+		dao.write(vo);
+	}
 }

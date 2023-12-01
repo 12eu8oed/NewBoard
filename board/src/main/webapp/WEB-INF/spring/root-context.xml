@@ -8,9 +8,15 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	<!-- DB 접속은 root-context.xml 에 설정 -->
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-
+<!--    예시
+		<bean id="아이디" class="클래스">
+			<property name="변수명" value="값" />
+			<property name="변수명" ref="참조값" />
+		</bean>
+ -->
 	<bean
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="driverClassName" value="org.mariadb.jdbc.Driver" />
@@ -29,7 +35,8 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
 	</bean>
 
-	<context:component-scan base-package="com.board.domain" />
+	<!-- 이 경로에 해당하는 파일을 자동으로 스프링이 빈으로 주입을 하게 된다 -->
+	<context:component-scan base-package="com.board.domain" />  
 	<context:component-scan base-package="com.board.dao" />
 	<context:component-scan base-package="com.board.service" />
 
