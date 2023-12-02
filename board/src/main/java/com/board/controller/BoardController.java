@@ -27,9 +27,10 @@ public class BoardController {
 		list = service.list();
 		model.addAttribute("list", list);
 	}
-
+	
+	//게시글 작성 컨트롤러
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public void getWrite() throws Exception { // 게시글 작성 컨트롤러
+	public void getWrite() throws Exception { 
 
 	}
 
@@ -38,8 +39,14 @@ public class BoardController {
 	public String postWrite(BoardVO vo) throws Exception {
 		service.write(vo);
 
-		return "redirect:/board/list";  //모든 작업을 마치고 /board/list, 즉 게시물 목록 화면으로 이동하겠다는 의미
-		//왜 그냥 url 쓰면 안되나? redirect를 사용해야 하는 이유는?
+		return "redirect:/board/list"; // 모든 작업을 마치고 /board/list, 즉 게시물 목록 화면으로 이동하겠다는 의미
+		// 왜 그냥 url 쓰면 안되나? redirect를 사용해야 하는 이유는?
+	}
+
+	// 게시물 조회
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	public void getView() throws Exception {
+		
 	}
 
 }

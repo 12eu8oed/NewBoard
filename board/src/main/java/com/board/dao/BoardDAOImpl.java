@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.board.domain.BoardVO;
 
-@Repository  
+@Repository
 public class BoardDAOImpl implements BoardDAO { // Implement 구현하다 BoardDAO의 구현클래스 이다, DB쪽 구현체
 
 	@Inject
@@ -28,6 +28,14 @@ public class BoardDAOImpl implements BoardDAO { // Implement 구현하다 BoardD
 	@Override
 	public void write(BoardVO vo) throws Exception {
 		sql.insert(namespace + ".write", vo);
+	}
+
+	// 게시물 조회
+	@Override
+	public BoardVO view(int bno) throws Exception {
+
+		return sql.selectOne(namespace + ".view", bno);
+
 	}
 
 }
