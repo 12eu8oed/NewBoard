@@ -29,13 +29,13 @@ public class BoardController {
 		model.addAttribute("list", list);
 	}
 
-	// 게시글 작성 컨트롤러
+	// 게시글 작성 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public void getWrite() throws Exception {
 
 	}
 
-	// 스프링 게시판 만들기 #5. 게시물 작성 구현 메소드 이름이랑 이상하고 막 오타도 있으니까 무작정 베끼면 골로 간다.
+	// 스프링 게시판 만들기 #5. 무작정 베끼면 골로 간다.
 	// 게시글 작성
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String postWrite(BoardVO vo) throws Exception {
@@ -60,6 +60,17 @@ public class BoardController {
 		
 		BoardVO vo = service.view(bno);
 		model.addAttribute("view", vo);
+	}
+	
+	// 게시물 수정
+	// service.modify(vo); 에서 뷰에서 컨트롤러로 넘어온 데이터(BoardVO)를 이용해 수정을 끝내고,
+	// return "redirect:/board/view?bno=" + vo.getBno();에서 현재 bno에 해당되는 조회 페이지로 이동되도록 했습니다.
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String postModify(BoardVO vo) throws Exception {
+
+		service.modify(vo);
+
+		return "redirect:/board/view?bno=" + vo.getBno();
 	}
 
 }

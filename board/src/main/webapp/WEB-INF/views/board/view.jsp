@@ -5,16 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>게시물 조회</title>
+<style>
+</style>
 </head>
 <body>  <!-- <br />태그는 줄바꿈 -->
+
+<div id="nav">
+ 	<%@ include file="../include/nav.jsp" %>
+</div>
 	
-	<label>제목</label> 
+	<label>[제목]</label> 
 	${view.title} <br />
 
-	<label>작성자</label> 
+	<label>[작성자]</label> 
 	${view.writer} <br />
 
-	<label>내용</label> <br />
+	<label>[내용]</label> <br />
 	${view.content} <br />
 
 	<div>
