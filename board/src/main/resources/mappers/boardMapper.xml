@@ -18,13 +18,13 @@
 				values(#{title}, #{content}, #{writer})
 	</insert>
 	
-	 					<!-- 파라미터 타입(parameterType)은 매퍼에 들어오는 데이터, 리설트 타입(resultType)은 매퍼가 내보내는 데이터입니다. -->
-	<!-- 게시물 조회 -->		<!-- 정수(int)형인 게시물 번호를 보내고, 게시물의 데이터형인 BoardVO를 내보내게됩니다. -->
+	 					<!-- parameterType는 입력받는 데이터, resultType는 출력할 데이터 -->
+	<!-- 게시물 조회 -->		<!-- 정수(int)형인 게시물 번호를 보내고, 게시물의 데이터형인 BoardVO를 내보내게됩니다. 출력할 데이터란, 쿼리문이 실행된 결과 --> 
 	<select id="view" parameterType="int" resultType="com.board.domain.BoardVO">
 		select
 			bno, title, content, writer, regDate, viewCnt
 		from
-			tbl_board
+			board.tbl_board
 		where
 			bno = #{bno}   
 	</select>

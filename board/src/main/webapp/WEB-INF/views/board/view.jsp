@@ -6,20 +6,19 @@
 <meta charset="UTF-8">
 <title>게시물 조회</title>
 </head>
-<body>
-	<form method="post">
+<body>  <!-- <br />태그는 줄바꿈 -->
 	
-	<label>제목</label>
-	<input type="text" name="title" /> <br />
-	
-	<label>작성자</label>
-	<input type="text" name="writer" /> <br />
-	
-	<label>내용</label>
-	<textarea cols="50" rows="5" name="content"></textarea> <br />
-	
-<!-- 	<button type="submit">작성</button> -->
-	
-	</form>
+	<label>제목</label> 
+	${view.title} <br />
+
+	<label>작성자</label> 
+	${view.writer} <br />
+
+	<label>내용</label> <br />
+	${view.content} <br />
+
+	<div>
+		<a href="/board/modify?bno=${view.bno}">게시물 수정</a>
+	</div>
 </body>
 </html>

@@ -33,7 +33,6 @@ public class BoardDAOImpl implements BoardDAO { // Implement 구현하다 BoardD
 	// 게시물 조회
 	@Override
 	public BoardVO view(int bno) throws Exception {
-
 		return sql.selectOne(namespace + ".view", bno);
 
 	}

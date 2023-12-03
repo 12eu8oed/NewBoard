@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.board.domain.BoardVO;
 import com.board.service.BoardService;
@@ -27,14 +28,15 @@ public class BoardController {
 		list = service.list();
 		model.addAttribute("list", list);
 	}
-	
-	//게시글 작성 컨트롤러
+
+	// 게시글 작성 컨트롤러
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public void getWrite() throws Exception { 
+	public void getWrite() throws Exception {
 
 	}
 
 	// 스프링 게시판 만들기 #5. 게시물 작성 구현 메소드 이름이랑 이상하고 막 오타도 있으니까 무작정 베끼면 골로 간다.
+	// 게시글 작성
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String postWrite(BoardVO vo) throws Exception {
 		service.write(vo);
@@ -44,9 +46,20 @@ public class BoardController {
 	}
 
 	// 게시물 조회
+	// BoardVO를 이용하여 서비스(service)에서 데이터를 받고, 모델(model)을 이용하여 뷰(view)에 데이터를 넘겨줍니다. 이때, 넘겨주는 모델의 이름은 view입니다.
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
-	public void getView() throws Exception {
+	public void getView(@RequestParam("bno") int bno, Model model) throws Exception {
 		
+		BoardVO vo = service.view(bno);
+		model.addAttribute("view", vo);
+	}
+	
+	// 게시물 수정
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public void getModify(@RequestParam("bno") int bno, Model model) throws Exception {
+		
+		BoardVO vo = service.view(bno);
+		model.addAttribute("view", vo);
 	}
 
 }

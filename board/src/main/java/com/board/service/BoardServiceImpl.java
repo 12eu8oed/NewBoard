@@ -10,7 +10,7 @@ import com.board.dao.BoardDAO;
 import com.board.domain.BoardVO;
 
 @Service
-public class BoardServiceImpl implements BoardService { //정보 전달 용도
+public class BoardServiceImpl implements BoardService { // 정보 전달 용도
 
 	@Inject
 	private BoardDAO dao;
@@ -27,4 +27,13 @@ public class BoardServiceImpl implements BoardService { //정보 전달 용도
 	public void write(BoardVO vo) throws Exception {
 		dao.write(vo);
 	}
+
+	// 게시물 조회
+	@Override
+	public BoardVO view(int bno) throws Exception {
+		
+		return dao.view(bno);
+	}
+
+	
 }
