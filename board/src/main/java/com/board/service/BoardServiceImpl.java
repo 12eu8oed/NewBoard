@@ -47,5 +47,11 @@ public class BoardServiceImpl implements BoardService { // 정보 전달 용도
 	public void delete(int bno) throws Exception {
 		dao.delete(bno);
 	}
+	
+	// 게시물 총 갯수
+	@Override
+	public int count() throws Exception {
+		return dao.count();
+	}
 
 }

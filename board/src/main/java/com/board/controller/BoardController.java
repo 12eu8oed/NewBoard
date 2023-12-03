@@ -19,7 +19,8 @@ public class BoardController {
 
 	@Inject
 	BoardService service;
-
+	
+	// 게시물 목록
 	// GET 방식은 서버에서 정보를 조회할 때 주로 쓰이고, POST 방식은 정보를 수정하거나 입력할 때 사용
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void getList(Model model) throws Exception { // Model은 컨트롤러(Controller)와 뷰(View)를 연결해주는 역할을 합니다.
@@ -80,6 +81,14 @@ public class BoardController {
 		service.delete(bno);
 		return "redirect:/board/list";
 		
+	}
+	
+	// 게시물 목록 + 페이징 추가
+	@RequestMapping(value = "/listpage", method = RequestMethod.GET)
+	public void getListPage(Model model) throws Exception { // Model은 컨트롤러(Controller)와 뷰(View)를 연결해주는 역할을 합니다.
+		List list = null;
+		list = service.list();
+		model.addAttribute("list", list);
 	}
 
 }

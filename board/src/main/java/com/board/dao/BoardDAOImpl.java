@@ -49,4 +49,10 @@ public class BoardDAOImpl implements BoardDAO { // Implement 구현하다 BoardD
 		sql.delete(namespace + ".delete", bno);
 	}
 
+	// 게시물 총 갯수
+	@Override
+	public int count() throws Exception {
+		return sql.selectOne(namespace+".count");
+	}
+
 }
