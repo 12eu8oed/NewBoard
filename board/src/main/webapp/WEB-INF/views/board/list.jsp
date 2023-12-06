@@ -10,10 +10,10 @@
 <body>
 
 <div id="nav">
-	 <%@ include file="../include/nav.jsp" %>
+	<%@ include file="../include/nav.jsp" %>  
 </div>
 
-<table>
+	<table>
 	<thead>
 		<tr>
 			<th>번호</th>

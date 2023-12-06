@@ -84,7 +84,7 @@ public class BoardController {
 	}
 	
 	// 게시물 목록 + 페이징 추가
-	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)  //알고리즘 짜는 느낌이구만 
 	public void getListPage(Model model, @RequestParam("num") int num) throws Exception {
 
 		// 게시물 총 갯수
@@ -103,10 +103,21 @@ public class BoardController {
 		int pageNum_cnt = 10;
 
 		// 표시되는 페이지 번호 중 마지막 번호
-		int endPageNum = (int) (Math.ceil((double) num / (double) pageNum_cnt) * pageNum_cnt);
+		int endPageNum = (int)(Math.ceil((double) num / (double) pageNum_cnt) * pageNum_cnt);
 
 		// 표시되는 페이지 번호 중 첫번째 번호
 		int startPageNum = endPageNum - (pageNum_cnt - 1);
+		
+		// 마지막 번호 재계산
+		int endPageNum_tmp = (int) (Math.ceil((double) count / (double) pageNum_cnt));
+
+		if (endPageNum > endPageNum_tmp) {  //1차계산과 2차 계산값 비교
+			endPageNum = endPageNum_tmp;
+		}
+		
+		//조건문 ? 참 : 거짓 ; 삼항 조건 연산자
+		boolean prev = startPageNum == 1 ? false : true;  //이전 번호
+		boolean next = endPageNum * pageNum_cnt >= count ? false : true; //다음 번호
 
 		// 마지막 페이지 번호 = ((올림)(현재 페이지 번호 / 한번에 표시할 페이지 번호의 갯수)) * 한번에 표시할 페이지 번호의 갯수
 		// 시작 페이지 = 마지막 페이지 번호 - 한번에 표시할 페이지 번호의 갯수 + 1
@@ -115,6 +126,15 @@ public class BoardController {
 		list = service.listPage(displayPost, postNum);
 		model.addAttribute("list", list);
 		model.addAttribute("pageNum", pageNum);
+		
+		// 시작 및 끝 번호
+		model.addAttribute("startPageNum", startPageNum);
+		model.addAttribute("endPageNum", endPageNum);
+
+		// 이전 및 다음
+		model.addAttribute("prev", prev);
+		model.addAttribute("next", next);
+
 	}
 
 }
