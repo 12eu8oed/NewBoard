@@ -50,7 +50,13 @@
 
 		<c:forEach begin="${startPageNum}" end="${endPageNum}" var="num">
 			<span> 
-				<a href="/board/listPage?num=${num}">${num}</a>
+				<c:if test="${select != num}">
+					<a href="/board/listPage?num=${num}">${num}</a>
+				</c:if> 
+				
+				<c:if test="${select == num}">
+					<b>${num}</b>  <!-- 현재페이지에는 하이퍼링크를 달지 않는다. -->
+				</c:if>
 			</span>
 		</c:forEach>
 		
