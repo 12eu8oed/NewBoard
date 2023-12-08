@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.board.domain.BoardVO;
+import com.board.domain.Page;
 import com.board.service.BoardService;
 
 @Controller
@@ -87,6 +88,35 @@ public class BoardController {
 	@RequestMapping(value = "/listPage", method = RequestMethod.GET)  //알고리즘 짜는 느낌이구만 
 	public void getListPage(Model model, @RequestParam("num") int num) throws Exception {
 
+		Page page = new Page();
+
+		page.setNum(num);
+		page.setCount(service.count());
+
+		List<BoardVO> list = null;
+		list = service.listPage(page.getDisplayPost(), page.getPostNum());
+
+		model.addAttribute("list", list);
+		
+		/* 모두 page의 데이터입니다.
+		model.addAttribute("pageNum", page.getPageNum());
+		
+		//시작 및 끝번호
+		model.addAttribute("startPageNum", page.getStartPageNum());
+		model.addAttribute("endPageNum", page.getEndPageNum());
+
+		// 이전 및 다음
+		model.addAttribute("prev", page.getPrev());
+		model.addAttribute("next", page.getNext());
+		 */
+		
+		//page 데이터 전부를 view로 전달한다.
+		model.addAttribute("page", page);
+		
+		//현재 페이지
+		model.addAttribute("select", num);
+		
+		/*
 		// 게시물 총 갯수
 		int count = service.count();
 
@@ -118,7 +148,7 @@ public class BoardController {
 		//조건문 ? 참 : 거짓 ; 삼항 조건 연산자
 		boolean prev = startPageNum == 1 ? false : true;  //이전 번호
 		boolean next = endPageNum * pageNum_cnt >= count ? false : true; //다음 번호
-
+		
 		// 마지막 페이지 번호 = ((올림)(현재 페이지 번호 / 한번에 표시할 페이지 번호의 갯수)) * 한번에 표시할 페이지 번호의 갯수
 		// 시작 페이지 = 마지막 페이지 번호 - 한번에 표시할 페이지 번호의 갯수 + 1
 
@@ -137,7 +167,8 @@ public class BoardController {
 		
 		//현재 페이지
 		model.addAttribute("select", num);
-
+		*/
+		
 	}
 
 }
