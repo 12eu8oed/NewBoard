@@ -7,6 +7,58 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
+
+#nav {
+    background-color: rgba(255, 255, 128, .5);
+    color: white;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination li a {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    color: #000;
+}
+
+.pagination li.active a {
+    background-color: #f1f1f1;
+}
+</style>
 <body>
 
 <div id="nav">
