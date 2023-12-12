@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div id="nav" class="navbar navbar-light" style="background-color: #4c4c4c;">
+<div id="nav" class="navbar navbar-light " style="background-color: #4c4c4c;">
 	<%@ include file="../include/nav.jsp" %>  
 </div>
 

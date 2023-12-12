@@ -34,8 +34,8 @@ public class HomeController {
 		int DefaultPageNum = 1; // 첫번째 쪽을 기본페이지로 설정합니다.
 		getListPage(model, DefaultPageNum); // listPage 메소드를 호출합니다.
 
-//		return "board/listPage";
-		return "board/listPage?num=1";
+		return "board/listPage";
+//		return "board/listPage?num=1";
 	}
 
 	// 기존의 listPage 메소드는 그대로 둡니다.
