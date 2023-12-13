@@ -1,9 +1,12 @@
 package com.board.controller;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,8 +45,8 @@ public class BoardController {
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String postWrite(BoardVO vo) throws Exception {
 		service.write(vo);
-
-		return "redirect:/board/list"; // 모든 작업을 마치고 /board/list, 즉 게시물 목록 화면으로 이동하겠다는 의미
+		
+		return "redirect:/board/listPage?num=1"; // 모든 작업을 마치고 /board/list, 즉 게시물 목록 화면으로 이동하겠다는 의미
 		// 왜 그냥 url 쓰면 안되나? redirect를 사용해야 하는 이유는?
 	}
 
@@ -80,7 +83,7 @@ public class BoardController {
 	public String getDelete(@RequestParam("bno") int bno) throws Exception {
 		
 		service.delete(bno);
-		return "redirect:/board/list";
+		return "redirect:/board/listPage?num=1";
 		
 	}
 	

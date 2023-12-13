@@ -8,14 +8,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-blue">
   <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+    <ul class="navbar-nav mr-auto ">
+      <li class="nav-item mr-3">
         <a class="nav-link btn btn-primary" href="/board/listPage?num=1">글 목록(페이징)</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item mr-3">
         <a class="nav-link btn btn-info" href="/board/list">글 목록</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item ">
         <a class="nav-link btn btn-warning" href="/board/write">글 작성</a>
       </li>
     </ul>

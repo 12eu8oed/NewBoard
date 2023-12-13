@@ -9,9 +9,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <style>
-.navbar-custom {
-	background-color: #343a40;
-} /* 네비게이션 바 색상을 Bootstrap의 기본 어두운 회색으로 변경 */
 .btn-custom {
 	border-color: #007bff;
 	color: #007bff;
@@ -20,9 +17,7 @@
 	background-color: #007bff;
 	color: white;
 } /* 버튼을 호버했을 때의 배경과 글씨 색상을 설정 */
-body {
-	font-size: 1.2rem;
-} /* 본문의 글씨 크기를 1.2rem으로 설정 */
+
 </style>
 </head>
 <body>
