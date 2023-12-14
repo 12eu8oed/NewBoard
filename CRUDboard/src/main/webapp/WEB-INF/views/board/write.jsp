@@ -8,6 +8,16 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('form').on('submit', function(e) {
+        if ($('#title').val() === "" || $('#writer').val() === "" || $('#content').val() === "") {
+            alert("제목, 작성자, 내용을 다 작성해주세요");
+            e.preventDefault(); // This will prevent the form from being submitted
+        }
+    });
+});
+</script>
 <style>
 .btn-custom {
 	border-color: #007bff;
@@ -17,7 +27,6 @@
 	background-color: #007bff;
 	color: white;
 } /* 버튼을 호버했을 때의 배경과 글씨 색상을 설정 */
-
 </style>
 </head>
 <body>
